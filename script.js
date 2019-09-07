@@ -20,13 +20,28 @@ gs_l=psy-ab.3..0i67l5j0l5.27995.30414..31046...0.1..0.368.1719.0j6j0j2......0...
 uact=5
 */
 
-function getWeather(){
-    let cityName = document.querySelector("input").value;
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=50c26845238d8cdbe5c3acddbf4ffd1b`)
+function getWeather() {
+  let cityName = document.querySelector("input").value;
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=50c26845238d8cdbe5c3acddbf4ffd1b`)
     .then(function (response) {
       // handle success
-      document.querySelector("h1").innerHTML = response.data.weather[0].main;
-    //   console.log(response.data.weather[0].main );
+      let icon = response.data.weather[0].icon;
+      document.querySelector(".icon-div").innerHTML = icon;
+      switch (icon) {
+        case 01d:
+          <div class="icon-div">
+            <img src="http://openweathermap.org/img/wn/01d@2x.png"></img>
+          </div>
+          break;
+        case 04n:
+          <div class="icon-div">
+            <img src="http://openweathermap.org/img/wn/04n@2x.png"></img>
+          </div>
+          break;
+        default:
+        // code block
+      }
+      console.log(response.data.weather[0].main);
     })
     .catch(function (error) {
       // handle error
