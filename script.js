@@ -1,24 +1,3 @@
-// API : Application Programming Interface(set of URLs to communicate with the Backend).
-// Static: Aapne hae cheez hardcode kardi.Agar kuch change karna hai tou har dafa code update karna hai.
-// Dynamic : khud ba khud upsdate honay wali cheez ko dynamic kehtay hain.
-// www.faebook.com (Server ka address)
-// www.facebook.com/messenger(messenger = path)
-//  www.facebook.com/messenger?(Question mark aagay jo bh likha hai usay query string kehtay hain).
-/*
-https://github.com/search?q=somia+ansari
-protocol : https
-server address : www.github.com
-path:/search
-queryString:q=somia+ansari
-
-https://www.google.com/search?hl=en&
-ei=PQlhXfb4LY_4wALXlZioBQ&
-q=biryani&
-oq=biryani&
-gs_l=psy-ab.3..0i67l5j0l5.27995.30414..31046...0.1..0.368.1719.0j6j0j2......0....1..gws-wiz.....0..0i71j0i131.QGq8pfuTPU8
-&ved=0ahUKEwi2i4q6npvkAhUPPFAKHdcKBlUQ4dUDCAo&
-uact=5
-*/
 
 function getWeather() {
   let cityName = document.querySelector("input").value;
@@ -26,22 +5,50 @@ function getWeather() {
     .then(function (response) {
       // handle success
       let icon = response.data.weather[0].icon;
-      document.querySelector(".icon-div").innerHTML = icon;
-      switch (icon) {
-        case 01d:
-          <div class="icon-div">
-            <img src="http://openweathermap.org/img/wn/01d@2x.png"></img>
-          </div>
+      console.log(icon)
+      document.querySelector("img").src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+      let weather = response.data.weather[0].main;
+      console.log(response.data.weather[0].main);
+      let myBody = document.querySelector("body");
+      switch (weather) {
+        case "Clouds":
+          document.body.style.background = "url(images/clouds.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
+          // document.body.style.background = "background-repeat: no-repeat;" 
           break;
-        case 04n:
-          <div class="icon-div">
-            <img src="http://openweathermap.org/img/wn/04n@2x.png"></img>
-          </div>
+        case "Mist":
+        case "Smoke":
+        case "Haze":
+        case "Dust":
+        case "Fog":
+        case "Sand":
+        case "Ash":
+        case "Squall":
+        case "Tornado":
+          document.body.style.background = "url(images/mist.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
+          break;
+        case "Rain":
+        case "Drizzle":
+          document.body.style.background = "url(images/rain.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
+          break;
+        case "Clear":
+          document.body.style.background = "url(images/clear.gif) no-repeat";
+          document.body.style.backgroundSize = "cover"; 
+          break;
+        case "Snow":
+          document.body.style.background = "url(images/snow.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
+          break;
+        case "Thunderstorm":
+          document.body.style.background = "url(images/snow.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
           break;
         default:
-        // code block
+          document.body.style.background = "url(images/sunny.gif) no-repeat";
+          document.body.style.backgroundSize = "cover";
       }
-      console.log(response.data.weather[0].main);
     })
     .catch(function (error) {
       // handle error
@@ -51,7 +58,6 @@ function getWeather() {
       // always executed
     });
 }
-
 
 
 

@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    padding: 2em;
+    background-image: url(images/sunny.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    text-align: center;
+}
+
+input{
+    height: 2em;
+    width: 65%;
+    padding: 6px;
+    border: 1;
+    border: none;
+    border-bottom: 1px solid lightslategray;
+    outline: none;
+    border-radius: 2px;
+}
+
+/* input:active{
+    border-bottom: 1px solid white;
+} */
