@@ -1,10 +1,12 @@
 body{
     height: 100vh;
     padding: 2em;
-    background-image: url(images/sunny.gif);
+    background-image: url(images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
 }
+
 
 form{
     text-align: center;
@@ -21,6 +23,13 @@ input{
     border-radius: 2px;
 }
 
-/* input:active{
-    border-bottom: 1px solid white;
-} */
+.main{
+    margin-top: 5em;
+    background-color: #ffffffa3;
+    border-radius: 5px;
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding: 2em;
+}
