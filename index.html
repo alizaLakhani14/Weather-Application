@@ -7,16 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,600i,700,700i,800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    
+    <div class="form">
         <input type="text" placeholder="Enter Your City">
         <button onclick="getWeather()">Get Weather</button>
-    <div class="main">
-        <h1></h1>
-        <p></p>
+    </div>
+    <div class="icon-and-location">
+        <h2 class="city"></h2>
         <img src="">
+    </div>
+    <div class="weather-info">
+        <div class="temperature">
+            <h1 class="degree"></h1>
+            <p class="weather-description"></p>
+        </div>
+        <hr>
+        <div class="wind">
+           <h4>Wind</h4>
+            <p></p>
+        </div>
+        <hr>
+        <div class="humidity">
+            <h4>Humidity</h4>
+            <p></p>
+        </div>
+
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>

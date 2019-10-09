@@ -1,3 +1,15 @@
+let city = document.querySelector(".city");
+let temperature = document.querySelector(".temperature .degree");
+let description = document.querySelector(".temperature .weather-description");
+let wind = document.querySelector(".wind p");
+let humidity = document.querySelector(".humidity p");
+const KELVIN = 273;
+let weatherIcon = document.querySelector("img");
+
+// document.body.style.backgroundImage="url(day-bg.jpg)";  
+     
+
+
 
 function getWeather() {
   let cityName = document.querySelector("input").value;
@@ -5,52 +17,19 @@ function getWeather() {
     .then(function (response) {
       // handle success
       let icon = response.data.weather[0].icon;
-      console.log(icon)
-      document.querySelector("img").src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-      document.querySelector('p').innerHTML = response.data.weather[0].main;
-      document.querySelector('h1').innerHTML = `${Math.floor(response.data.main.temp - 273.15)}c`;
-      // let weather = response.data.weather[0].main;
-      console.log(response.data.weather[0].main);
-      let myBody = document.querySelector("body");
-      // switch (weather) {
-      //   case "Clouds":
-      //     document.body.style.background = "url(images/clouds.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      //     // document.body.style.background = "background-repeat: no-repeat;" 
-      //     break;
-      //   case "Mist":
-      //   case "Smoke":
-      //   case "Haze":
-      //   case "Dust":
-      //   case "Fog":
-      //   case "Sand":
-      //   case "Ash":
-      //   case "Squall":
-      //   case "Tornado":
-      //     document.body.style.background = "url(images/mist.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      //     break;
-      //   case "Rain":
-      //   case "Drizzle":
-      //     document.body.style.background = "url(images/rain.jpg) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      //     break;
-      //   case "Clear":
-      //     document.body.style.background = "url(images/clear.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover"; 
-      //     break;
-      //   case "Snow":
-      //     document.body.style.background = "url(images/snow.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      //     break;
-      //   case "Thunderstorm":
-      //     document.body.style.background = "url(images/snow.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      //     break;
-      //   default:
-      //     document.body.style.background = "url(images/sunny.gif) no-repeat";
-      //     document.body.style.backgroundSize = "cover";
-      // }
+      city.innerHTML = `${cityName}, ${response.data.sys.country}`;
+      weatherIcon.src =`http://openweathermap.org/img/wn/${icon}@2x.png`;
+      temperature.innerHTML =  `${Math.floor(response.data.main.temp - KELVIN)}°c`;
+      wind.innerHTML = `${Math.floor(response.data.wind.speed * 3.6)} Km/h`;
+      humidity.innerHTML = `${response.data.main.humidity}%`;
+      description.innerHTML = `${response.data.weather[0].description}`;  
+      console.log(city.innerHTML);
+      let timeInHours = response.data.timezone/3600;
+      if(timeInHours < 12){
+        document.body.style.backgroundImage="url(day-bg.jpg)";  
+      } else{
+        document.body.style.backgroundImage="url(night-bg.jpg)";
+      }
     })
     .catch(function (error) {
       // handle error
