@@ -71,7 +71,7 @@ function getWeather() {
 		})
 		.catch(function(error) {
 			// handle error
-			console.log(error);
+			alert("City not found");
 		})
 		.finally(function() {
 			// always executed
