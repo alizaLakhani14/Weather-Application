@@ -36,7 +36,7 @@ input:focus {
 }
 
 .weather-card {
-	width: 30%;
+	width: 27%;
 	border: 1px solid white;
 	background-color: #2c303554;
 	display: none;
