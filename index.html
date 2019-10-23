@@ -18,6 +18,7 @@
         <input type="text" placeholder="Enter Your City">
         <button onclick="getWeather()">Get Weather</button>
     </div>
+
     <div class="weather-card">
         <div class="location">
             <h2></h2>
@@ -27,21 +28,26 @@
                 <img src="">
                 <h1></h1>
             </div>
-            <div class="weather-description">
-                <p></p>
-            </div>
-            <div class="humidity-and-wind">
-                <div class="humidity">
-                        <i class="fas fa-tint"x id="droplet"></i>
-                        <h3></h3>
+            <div class="section">
+                <div class="weather-description">
+                    <p></p>
                 </div>
-                <div class="wind">
+                <div class="humidity-and-wind">
+                    <div class="humidity">
+                        <i class="fas fa-tint" id="droplet"></i>
+                        <h3></h3>
+                    </div>
+                    <div class="wind">
                         <i class="fas fa-wind" id="wind-icon"></i>
                         <h3></h3>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
+
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
